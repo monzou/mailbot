@@ -1,5 +1,14 @@
-require "mailbot/version"
+require "dotenv"
+require "slop"
+require "redcarpet"
 
-module Mailbot
-  # Your code goes here...
-end
+require "mailbot/command_factory"
+require "mailbot/commands/base"
+require "mailbot/commands/sync"
+require "mailbot/entry"
+require "mailbot/entries"
+require "mailbot/errors"
+require "mailbot/mailer"
+require "mailbot/markdown"
+require "mailbot/repository"
+require "mailbot/version"
