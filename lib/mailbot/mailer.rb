@@ -19,8 +19,8 @@ module Mailbot
       end
 
       def default
-        mailgun = Mailgun::Client.new ENV["MAILBOT_MAILGUN_API_KEY"]
         ->(subject, body) do
+          mailgun = Mailgun::Client.new ENV["MAILBOT_MAILGUN_API_KEY"]
           params = {
             :from    => ENV["MAILBOT_MAIL_FROM"],
             :to      => ENV["MAILBOT_MAIL_TO"],

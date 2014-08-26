@@ -11,7 +11,7 @@ module Mailbot
           entry
         else
           begin
-            Mailbot::Mailer.deliver subject: entry.subject, body: entry.markdown
+            Mailbot::Mailer.deliver subject: entry.subject, body: entry.render_body
             Mailbot::LOGGER.info "Succeeded to sync an entry: #{entry.subject}"
             entry.sync
           rescue => e

@@ -15,8 +15,8 @@ module Mailbot
       headers.reject { |header| header =~ /#{SYNC_MARK}/ }.first
     end
 
-    def markdown
-      Mailbot::Markdown.render @data.sub(HEADER_LINE_PATTERN, "")
+    def render_body
+      Mailbot::Renderer.render @data.sub(HEADER_LINE_PATTERN, "")
     end
 
     def synced?

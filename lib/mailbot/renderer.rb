@@ -1,10 +1,10 @@
 module Mailbot
 
-  module Markdown
+  module Renderer
 
     BLOCK_SYMBOL = :mailbot_markdown_block
 
-    class Renderer < Redcarpet::Render::HTML
+    class HTMLwithCodeRay < Redcarpet::Render::HTML
       def block_code(code, language)
         CodeRay.scan(code, language.to_sym).div
       end
@@ -25,10 +25,11 @@ module Mailbot
       end
 
       def default
-        require "mailgun"
-        renderer = Renderer.new :filter_html => true, :hard_wrap => true
-        markdown = Redcarpet::Markdown.new renderer, :autolink => true, :space_after_headers => true, :fenced_code_blocks => true
-        ->(text) { markdown.render text }
+        ->(text) do
+          renderer = HTMLwithCodeRay.new :filter_html => true, :hard_wrap => true
+          markdown = Redcarpet::Markdown.new renderer, :autolink => true, :space_after_headers => true, :fenced_code_blocks => true
+          markdown.render text
+        end
       end
 
     end

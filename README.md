@@ -1,6 +1,6 @@
 # Mailbot
 
-Learn with [Mailbox](http://www.mailboxapp.com/).
+Learn with [Mailbox](http://www.mailboxapp.com/)
 
 ## Usage
 
