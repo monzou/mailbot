@@ -1,3 +1,5 @@
+require "logger"
+
 require "dotenv"
 require "slop"
 require "redcarpet"
@@ -5,6 +7,7 @@ require "redcarpet"
 require "mailbot/command_factory"
 require "mailbot/commands/base"
 require "mailbot/commands/sync"
+require "mailbot/logger"
 require "mailbot/entry"
 require "mailbot/entries"
 require "mailbot/errors"

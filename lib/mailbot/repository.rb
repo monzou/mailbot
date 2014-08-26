@@ -12,9 +12,10 @@ module Mailbot
         else
           begin
             Mailbot::Mailer.deliver subject: entry.subject, body: entry.markdown
+            Mailbot::LOGGER.info "Succeeded to sync an entry: #{entry.subject}"
             entry.sync
           rescue => e
-            p e
+            Mailbot::LOGGER.warn "Failed to sync an entry: #{entry.subject}\n#{e.backtrace.join("\n")}"
             entry
           end
         end
