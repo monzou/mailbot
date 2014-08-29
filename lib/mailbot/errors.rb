@@ -4,7 +4,8 @@ module Mailbot
     class Base < StandardError
     end
 
-    class CommandNotFound < Base
+    class CommandNotFoundError < Base
+    end
 
     class CommandPreconditionError < Base
     end
