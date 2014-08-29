@@ -31,6 +31,40 @@ module Mailbot
       @data
     end
 
+    class Parser
+
+      def initialize
+        @entries = []
+        @buffer = ""
+      end
+
+      def parse(text)
+        text.strip.each_line do |line|
+          if @buffer.empty?
+            @buffer = line
+          elsif line =~ HEADER_LINE_PATTERN
+            @buffer = line if flush
+          else
+            @buffer << line
+          end
+        end
+        flush
+        @entries
+      end
+
+      private
+
+      def flush
+        unless @buffer.empty?
+          @entries << Entry.new("#{@buffer.strip}\n")
+          true
+        else
+          false
+        end
+      end
+
+    end
+
     private
 
     def headers

@@ -33,7 +33,7 @@ module Mailbot
     end
 
     def entries
-      Mailbot::Entries.from read
+      Mailbot::Entry::Parser.new.parse read
     end
 
   end
