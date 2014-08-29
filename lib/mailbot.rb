@@ -2,6 +2,7 @@ require "logger"
 
 require "dotenv"
 require "slop"
+require "coderay"
 require "redcarpet"
 require "mailgun"
 

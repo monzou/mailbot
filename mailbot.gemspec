@@ -19,6 +19,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "dotenv"
   spec.add_dependency "slop"
+  spec.add_dependency "coderay"
   spec.add_dependency "redcarpet"
   spec.add_dependency "mailgun-ruby"
   spec.add_development_dependency "bundler", "~> 1.5"
