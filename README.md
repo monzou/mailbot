@@ -7,8 +7,3 @@ Learn with [Mailbox](http://www.mailboxapp.com/)
 ```
 $ mailbot sync --file study.md
 ```
-
-## TODO
-
-- RSpec
-- rubygems
