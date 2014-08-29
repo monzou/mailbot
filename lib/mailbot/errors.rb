@@ -5,6 +5,8 @@ module Mailbot
     end
 
     class CommandNotFound < Base
+
+    class CommandPreconditionError < Base
     end
 
   end
