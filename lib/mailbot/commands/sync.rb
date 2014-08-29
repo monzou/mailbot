@@ -2,19 +2,21 @@ module Mailbot
   module Commands
     class Sync < Base
 
+      # @param argv [Array] ARGV
       def initialize(argv)
         @argv = argv
       end
 
+      # Sync given file to Mailbox
       def execute
         Mailbot::Repository.new(file).sync
       end
 
+      private
+
       def file
         options[:file]
       end
-
-      private
 
       def options
         @options ||= Slop.parse!(@argv, help: true) do

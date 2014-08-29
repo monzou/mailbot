@@ -2,14 +2,17 @@ module Mailbot
 
   class CommandFactory
 
+    # @return [Mailbot::Commands::Base]
     def self.create(*args)
       new(*args).create
     end
 
+    # @param argv [Array] ARGV
     def initialize(argv)
       @argv = argv
     end
 
+    # @return [Mailbot::Commands::Base]
     def create
       command_class.new @argv
     rescue Errors::CommandNotFound

@@ -1,6 +1,8 @@
 module Mailbot
+
   class Repository
 
+    # @param path [String] The path to the text file to sync
     def initialize(path)
       @path = path
     end
@@ -19,13 +21,13 @@ module Mailbot
             entry
           end
         end
-      end.map(&:data).join("\n"))
+      end.map(&:text).join("\n"))
     end
 
     private
 
-    def write(data)
-      open(@path, "w:UTF-8").write data
+    def write(text)
+      open(@path, "w:UTF-8").write text
     end
 
     def read
@@ -37,4 +39,5 @@ module Mailbot
     end
 
   end
+
 end

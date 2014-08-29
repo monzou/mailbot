@@ -10,7 +10,5 @@ $ mailbot sync --file study.md
 
 ## TODO
 
-- Update README
-- YARDOC
 - RSpec
 - rubygems
