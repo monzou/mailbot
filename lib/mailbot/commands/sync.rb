@@ -2,6 +2,9 @@ module Mailbot
   module Commands
     class Sync < Base
 
+      DEFAULT_MARKDOWN_FILE = "index.md"
+      DEFAULT_ENV_FILE = ".env"
+
       # @param argv [Array] ARGV
       def initialize(argv)
         @argv = argv
@@ -20,13 +23,11 @@ module Mailbot
       end
 
       def file
-        option = options[:file]
-        raise Errors::CommandPreconditionError.new "option `file` must be specified" unless option
-        option
+        options[:file] || DEFAULT_MARKDOWN_FILE
       end
 
       def env
-        options[:env] || ".env"
+        options[:env] || DEFAULT_ENV_FILE
       end
 
       def options

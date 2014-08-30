@@ -15,7 +15,7 @@ module Mailbot
     # @return [Mailbot::Commands::Base]
     def create
       command_class.new @argv
-    rescue Errors::CommandNotFoundError
+    rescue Errors::CommandNotFound
       terminate
     end
 
@@ -26,7 +26,7 @@ module Mailbot
       when "sync"
         Commands::Sync
       else
-        raise Errors::CommandNotFoundError
+        raise Errors::CommandNotFound
       end
     end
 
