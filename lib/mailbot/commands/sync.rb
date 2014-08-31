@@ -10,7 +10,7 @@ module Mailbot
         @argv = argv
       end
 
-      # Sync given file to Mailbox
+      # Sync the specified file to Mailbox
       def execute
         load_env!
         Mailbot::Repository.new(file).sync

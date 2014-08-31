@@ -25,6 +25,8 @@ module Mailbot
       case command_name
       when "sync"
         Commands::Sync
+      when "list"
+        Commands::List
       else
         raise Errors::CommandNotFound
       end

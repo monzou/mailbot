@@ -24,6 +24,11 @@ module Mailbot
       end.map(&:text).join("\n"))
     end
 
+    # @return [Array<Mailbot::Entry>] An array of all entries in this repository
+    def entries
+      Mailbot::Entry::Parser.new.parse read
+    end
+
     private
 
     def write(text)
@@ -32,10 +37,6 @@ module Mailbot
 
     def read
       open(@path, "r:UTF-8").read
-    end
-
-    def entries
-      Mailbot::Entry::Parser.new.parse read
     end
 
   end
